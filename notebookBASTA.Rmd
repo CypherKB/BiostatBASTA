@@ -153,10 +153,19 @@ df %>%
 #qqplot, gives error but I don't know what to do ;)
 combo=levels(df$Substrate)
 par(mfrow=c(4,4))
-for (i in 1:16)
+for (i in 1:4)
   {
   qqnorm(df$Curved_strawberries[df$Substrate==combo[i]],main=combo[i])
   qqline(df$Curved_strawberries[df$Substrate==combo[i]])
+}
+par(mfrow=c(1,1))
+
+Trich=levels(df$Trichoderma)
+par(mfrow=c(4,4))
+for (i in 1:4)
+  {
+  qqnorm(df$Curved_strawberries[df$Trichoderma==Trich[i]],main=Trich[i])
+  qqline(df$Curved_strawberries[df$Trichoderma==Trich[i]])
 }
 par(mfrow=c(1,1))
 
@@ -216,7 +225,7 @@ df_t %>%
   ggplot(aes(x = Curved_strawberries)) +
   geom_histogram(fill = "#D95C68") +
       labs(
-    title = "Normality confirmation of curved strawberry weight measures\nafter log2-transormation: Histogram", 
+    title = "Normality confirmation of curved strawberry weight measures\nafter square root-transformation: Histogram", 
     x = "Curved strawberry weight per plant (kg)") + 
   theme_bw()
 
@@ -231,7 +240,7 @@ df_t %>%
   theme_bw()
 ```
 
-Although homoscedasticity seems to be met (based on the previous boxplots), an additional sanity check is performed with Levene’s test (robust against normality violations).
+Although homoscedasticity seems to be met (based on the previous boxplots), an additional sanity check is performed with Levene’s test (robust against normality violations). Levene's test indicates that homoscedasticity is met.
 
 
 ```{r warning=FALSE}
@@ -273,7 +282,7 @@ summary(fit2)
 
 There could be an effect of the greenhouse on the data. As the greenhouses can have slightly different temperatures, humidity, soils, ... 
 
-Therefore we should incorporate the greenhouse variable in the moddel. (blocking)
+Therefore we should incorporate the greenhouse variable in the model. (blocking)
 
 ```{r}
 fit3 = lm(Curved_strawberries ~ Substrate + Trichoderma + Substrate:Trichoderma + Greenhouse, 
@@ -286,6 +295,7 @@ summary(fit3)
 ```{r}
 #Design
 X <- model.matrix(~Substrate*Trichoderma,data = df_t)
+
 ```
 
 
