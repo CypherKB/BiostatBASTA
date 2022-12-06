@@ -274,8 +274,8 @@ When performing anova, only a significant result can be seen with substrate as a
 Linear model fit with only substrate as a explanatory variable:
 
 ```{r}
-fit2 <- lm(Curved_strawberries ~ Substrate, data = df_t) 
-summary(fit2)
+fit <- lm(Curved_strawberries ~ Substrate, data = df_t) 
+summary(fit)
 ```
 
 ### Blocking
