@@ -150,7 +150,7 @@ df %>%
             y = "Weight of curved strawberries")+
   theme(plot.title=element_text(hjust = 0.5), axis.text.x = element_text(angle = 60,hjust=1))
 
-#qqplot, gives error but I don't know what to do ;)
+#qqplot
 combo=levels(df$Substrate)
 par(mfrow=c(4,4))
 for (i in 1:4)
