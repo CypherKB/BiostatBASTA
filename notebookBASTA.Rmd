@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ---
 title: "Biostatistics project - Group 25"
 author: "Emma Van Kerckhove, Kylian Baeyens, Robbe Claeys, Tom Nissens"
@@ -375,6 +376,8 @@ Write an appropriate conclusion as if you would publish these results in a scien
 The project needs to be handed in by Friday 23/12. Hand in an HTML file containing all your code + conclusions. The file should be saved as ProjectBiostatistics_Member1_Member2_Member3_Member4.
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> upstream/main
 ---
 title: "Biostatistics project - Group 25"
 author: "Emma Van Kerckhove, Kylian Baeyens, Robbe Claeys, Tom Nissens"
@@ -753,4 +756,7 @@ df[df$Trichoderma=="None",] %>%
 Write an appropriate conclusion as if you would publish these results in a scientific journal.
 
 The project needs to be handed in by Friday 23/12. Hand in an HTML file containing all your code + conclusions. The file should be saved as ProjectBiostatistics_Member1_Member2_Member3_Member4.
+<<<<<<< HEAD
+>>>>>>> upstream/main
+=======
 >>>>>>> upstream/main
