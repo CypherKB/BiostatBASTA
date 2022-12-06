@@ -39,6 +39,11 @@ On average, is there an effect of growing medium and/or the addition of Trichode
 ## Load the libraries
 
 ```{r results = 'hide', warning = FALSE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+  
+BiocManager::install("SummarizedExperiment")
+BiocManager::install("edgeR")
 library(ggplot2)
 library(dplyr)
 library(multcomp)
@@ -204,6 +209,7 @@ df %>%
     x = "Theoretical Quantiles",
     y = "Sample Quantities") + 
   theme_bw()
+summary(df)
 ```
 
 The data are not normally distributed with a tail to the right. A square root-transformation might help to make the data more normally distributed. The assumptions are re-evaluated.
@@ -245,7 +251,7 @@ leveneTest(Curved_strawberries ~ Substrate*Trichoderma, data = df_t)
 # set peatfree as intercept (peatfree is control soil)
 df_t <- within(df_t, Substrate <- relevel(Substrate, ref = "Peatfree"))
 
-fit = lm(Curved_strawberries ~ Substrate + Trichoderma + Substrate:Trichoderma, data = df_t)
+fit = lm(Curved_strawberries ~ Substrate + Trichoderma , data = df_t)
 summary(fit)
 par(mfrow = c(1,1))
 plot(fit)
@@ -281,6 +287,15 @@ fit3 = lm(Curved_strawberries ~ Substrate + Trichoderma + Substrate:Trichoderma 
 anova(fit3)
 summary(fit3)
 ```
+```{r}
+fit4 = lm(Curved_strawberries ~ Substrate + Greenhouse, 
+          data = df_t)
+summary(fit4)
+anova(fit4)
+fit4.mcp <- glht(fit4, linfct = mcp(Substrate = "Tukey"))
+summary(fit4.mcp)
+```
+
 ## Contrast matrix
 
 ```{r}
