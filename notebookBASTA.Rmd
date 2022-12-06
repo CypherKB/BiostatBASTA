@@ -188,7 +188,7 @@ df %>%
   theme_bw()
 ```
 
-Due to the limited number of observations and the large number of variables, trends in these plots should not be taken for granted and further statistical investigation will be performed.
+Due to the limited number of observations and the large number of variables, trends in these plots should not be taken for granted and further statistical investigation will be performed .
 
 # Model Selection & Statisticial Inference
 
