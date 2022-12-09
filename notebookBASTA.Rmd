@@ -292,7 +292,7 @@ fit3 = lm(Curved_strawberries ~ Substrate + Trichoderma + Substrate:Trichoderma 
           data = df_t)
 anova(fit3)
 summary(fit3)
-pwr.f2.test(u=3,v= 65-2-1, f2=0.1384/(1-0.1384),sig.level=0.05)
+pwr.f2.test(u=4,v= 64-4-1, f2=0.1384/(1-0.1384),sig.level=0.05)
 ```
 ## Contrast matrix
 
