@@ -44,6 +44,7 @@ On average, is there an effect of growing medium and/or the addition of Trichode
 library(ggplot2)
 library(dplyr)
 library(multcomp)
+library(pwr)
 library(SummarizedExperiment)
 library(edgeR)
 library(tidyverse)
@@ -291,6 +292,7 @@ fit3 = lm(Curved_strawberries ~ Substrate + Trichoderma + Substrate:Trichoderma 
           data = df_t)
 anova(fit3)
 summary(fit3)
+pwr.f2.test(u=3,v= 65-2-1, f2=0.1384/(1-0.1384),sig.level=0.05)
 ```
 ## Contrast matrix
 
