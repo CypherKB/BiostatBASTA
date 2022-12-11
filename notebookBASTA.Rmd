@@ -294,6 +294,12 @@ anova(fit3)
 summary(fit3)
 pwr.f2.test(u=4,v= 64-4-1, f2=0.1384/(1-0.1384),sig.level=0.05)
 ```
+The power of our lineair model is 69%. This indicates that there is a 69% probability of not making a type 2 error. This could be improved by repeatin g the experiment with more samples. To improve the power of our model to 80%, at least 80 samples wwould have to be taken.
+```{r}
+pwr.f2.test(u=4,v=NULL, f2=0.1384/(1-0.1384),sig.level=0.05, power=0.8)
+```
+
+
 ## Contrast matrix
 
 ```{r}
